@@ -13,3 +13,5 @@ done
 cd $CURRENT
 
 rm -rf $TMPDIR
+
+echo "dotfile scripts"
