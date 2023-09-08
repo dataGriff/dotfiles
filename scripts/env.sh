@@ -1,3 +1,3 @@
 #!/bin/sh
 
-DOTFILE_VAR="Datagriff rocks!"
+export DOTFILE_VAR="Datagriff rocks!"
