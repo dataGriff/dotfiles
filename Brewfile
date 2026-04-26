@@ -22,8 +22,8 @@ brew "pyenv"
 brew "nvm"
 
 # AI / Agent
-brew "claude-code"
-brew "cmux"
+cask "claude-code"
+cask "cmux"
 
 # Mac apps
 cask "ghostty"
@@ -42,5 +42,4 @@ cask "discord"
 cask "1password"
 
 # Fonts
-tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono-nerd-font"
