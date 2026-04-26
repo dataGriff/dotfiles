@@ -1,0 +1,7 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+theme = Dracula
+window-decoration = false
+macos-titlebar-style = tabs
+shell-integration = zsh
+scrollback-limit = 10000
