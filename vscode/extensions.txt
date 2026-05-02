@@ -1,3 +1,4 @@
+
 zhuangtongfa.material-theme
 pkief.material-icon-theme
 usernamehw.errorlens
@@ -5,7 +6,7 @@ eamodio.gitlens
 esbenp.prettier-vscode
 dbaeumer.vscode-eslint
 ms-python.python
-ms-python.pylance
+# ms-python.pylance — bundled with ms-python.python, installs automatically
 ms-python.black-formatter
 ms-azuretools.vscode-docker
 ms-vscode-remote.remote-ssh
@@ -15,9 +16,6 @@ humao.rest-client
 rangav.vscode-thunder-client
 yzhang.markdown-all-in-one
 streetsidesoftware.code-spell-checker
-anthropics.claude-code
-
-# Contracts & API design
+anthropic.claude-code
 42crunch.vscode-openapi
 asyncapi.asyncapi-preview
-
