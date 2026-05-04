@@ -1,7 +1,7 @@
 # Oh My  Zsh setup
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
-DEFAULT_USER="richardgriffiths"  # hides user@hostname from prompt when on your own machine
+DEFAULT_USER="$USER"
 
 plugins=(
   git
@@ -61,3 +61,6 @@ export NVM_DIR="$HOME/.nvm"
 # ── Load local secrets (never committed to git) ───────────────────────────────
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 
+
+# mise - dev tool version manager
+eval "$(mise activate zsh)"

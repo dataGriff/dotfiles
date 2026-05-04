@@ -346,12 +346,14 @@ brew "tree"
 brew "htop"
 brew "zsh"
 brew "go-task"
+brew "spectral-cli"
 
 # Dev runtimes
 brew "node"
 brew "python"
 brew "pyenv"
 brew "nvm"
+brew "mise"
 
 # Secrets management
 cask "1password-cli"
@@ -382,8 +384,8 @@ cask "font-jetbrains-mono-nerd-font"
 
 **What each category does:**
 
-- **CLI essentials:** Core command-line tools. `fzf` is a fuzzy finder, `ripgrep` is a fast search tool, `bat`/`eza` are better versions of `cat`/`ls`, `zoxide` is a smarter `cd`, `gh` is the GitHub CLI.
-- **Dev runtimes:** Node.js, Python, and version managers for both (`nvm` for Node, `pyenv` for Python) so you can switch versions per project.
+- **CLI essentials:** Core command-line tools. `fzf` is a fuzzy finder, `ripgrep` is a fast search tool, `bat`/`eza` are better versions of `cat`/`ls`, `zoxide` is a smarter `cd`, `gh` is the GitHub CLI, `spectral-cli` lints OpenAPI and AsyncAPI specs.
+- **Dev runtimes:** Node.js, Python, and version managers (`nvm` for Node, `pyenv` for Python, `mise` as a unified polyglot runtime manager) so you can switch versions per project.
 - **Casks:** Full Mac applications installed via Homebrew instead of manually downloading them.
 
 ---

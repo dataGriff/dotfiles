@@ -15,12 +15,14 @@ brew "tree"
 brew "htop"
 brew "zsh"
 brew "go-task"
+brew "spectral-cli"
 
 # Dev runtimes
 brew "node"
 brew "python"
 brew "pyenv"
 brew "nvm"
+brew "mise"
 
 # Secrets management
 cask "1password-cli"
