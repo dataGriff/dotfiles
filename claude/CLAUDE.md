@@ -11,17 +11,10 @@ full-stack development, data engineering, DevOps, and program management.
 - Do not add error handling for scenarios that cannot happen.
 - Plan before acting. Think through implications before writing code or making changes.
 
-# My stack
-- Languages: Python, TypeScript/JavaScript, SQL, Bash
-- Tools: Docker, GitHub, Linear, VS Code, Ghostty, cmux
-- Package management: Homebrew, npm/nvm, pip/pyenv
-- Cloud: (update as your cloud work evolves)
-
 # Project management
-- I track work in Linear.
-- When drafting tickets, use: title, problem statement, acceptance criteria, effort estimate.
+- When drafting tickets or tasks, use: title, problem statement, acceptance criteria, effort estimate.
+- Tracking tool is defined per-project. Ask if unclear.
 
-# Code style
-- Python: Black formatting, type hints where non-obvious
-- JS/TS: Prettier, ESLint, prefer const
+# Conventions
 - Commit messages: conventional commits format (feat:, fix:, chore:, etc.)
+- Stack, tooling, and code style are defined per-project in a local CLAUDE.md. Do not assume language or framework defaults.
