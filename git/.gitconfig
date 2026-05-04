@@ -1,0 +1,32 @@
+[user]
+  name = Richard Griffiths
+  email = griff182uk@googlemail.com
+
+[core]
+  editor = code --wait
+  autocrlf = input
+
+[init]
+  defaultBranch = main
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  ci = commit
+  lg = log --oneline --graph --decorate --all
+  undo = reset HEAD~1 --mixed
+  amend = commit --amend --no-edit
+  aliases = config --get-regexp alias
+
+[diff]
+  tool = vscode
+
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE

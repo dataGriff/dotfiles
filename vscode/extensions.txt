@@ -12,8 +12,6 @@ ms-azuretools.vscode-docker
 ms-vscode-remote.remote-ssh
 redhat.vscode-yaml
 gruntfuggly.todo-tree
-humao.rest-client
-rangav.vscode-thunder-client
 yzhang.markdown-all-in-one
 streetsidesoftware.code-spell-checker
 anthropic.claude-code

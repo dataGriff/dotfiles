@@ -14,6 +14,7 @@ brew "gh"
 brew "tree"
 brew "htop"
 brew "zsh"
+brew "go-task"
 
 # Dev runtimes
 brew "node"
@@ -21,7 +22,11 @@ brew "python"
 brew "pyenv"
 brew "nvm"
 
+# Secrets management
+brew "1password-cli"
+
 # AI / Agent
+cask "claude"
 cask "claude-code"
 cask "cmux"
 
