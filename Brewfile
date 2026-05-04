@@ -23,7 +23,7 @@ brew "pyenv"
 brew "nvm"
 
 # Secrets management
-brew "1password-cli"
+cask "1password-cli"
 
 # AI / Agent
 cask "claude"
