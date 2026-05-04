@@ -1,6 +1,5 @@
-[user]
-  name = Richard Griffiths
-  email = griff182uk@googlemail.com
+[include]
+  path = ~/.gitconfig.local
 
 [core]
   editor = code --wait

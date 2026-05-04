@@ -1,6 +1,20 @@
 # dotfiles
 My dotfile configuration
 
+## Setup
+
+```bash
+./install.sh
+```
+
+After running, create `~/.gitconfig.local` (not committed — keeps your identity out of the public repo):
+
+```ini
+[user]
+  name = Your Name
+  email = your@email.com
+```
+
 ## Shell aliases
 
 ### Claude Code

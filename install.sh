@@ -27,4 +27,13 @@ VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User"
 mkdir -p "$VSCODE_SETTINGS"
 ln -sf "$DOTFILES/vscode/settings.json" "$VSCODE_SETTINGS/settings.json"
 
+# Git local config (not committed — contains email/name)
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+  echo ""
+  echo "ACTION REQUIRED: Create ~/.gitconfig.local with your git identity:"
+  echo "  [user]"
+  echo "    name = Your Name"
+  echo "    email = your@email.com"
+fi
+
 echo "All dotfiles linked."
