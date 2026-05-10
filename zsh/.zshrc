@@ -46,7 +46,7 @@ alias ccr='claude --resume'
 # ── Dev shortcuts ─────────────────────────────────────────────────────────────
 alias py='python3'
 alias serve='python3 -m http.server 8000'
-alias brewup='brew update && brew upgrade && brew cleanup'
+alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup && mise upgrade'
 alias dotfiles='cd ~/dotfiles'
 alias dev='cd ~/dev'
 

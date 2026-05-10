@@ -46,6 +46,7 @@ cask "time-out"
 cask "linear-linear"
 cask "slack"
 cask "discord"
+cask "spotify"
 cask "1password"
 
 # Fonts
