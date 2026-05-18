@@ -18,9 +18,10 @@ mkdir -p "$HOME/.config/ghostty"
 ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 
 # Claude
-mkdir -p "$HOME/.claude"
+mkdir -p "$HOME/.claude/commands"
 symlink "claude/CLAUDE.md" ".claude/CLAUDE.md"
 symlink "claude/settings.json" ".claude/settings.json"
+ln -sf "$DOTFILES/claude/commands" "$HOME/.claude/commands"
 
 # VS Code settings
 VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User"
