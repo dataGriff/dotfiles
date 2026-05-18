@@ -1,12 +1,20 @@
-Ask the user: "Are you working with a ticketing system? (linear / jira / devops / github / none)"
+Use the AskUserQuestion tool (single-select, header: "Ticketing system") to ask:
+"Which ticketing system are you using?"
+- Label: "Linear", description: "e.g. ENG-123"
+- Label: "Jira", description: "e.g. PROJ-456"
+- Label: "GitHub Issues", description: "e.g. #42"
+- Label: "None", description: "No ticket — I'll describe what I'm doing"
 
-Based on their answer, collect the information needed to name the branch:
+Then collect the remaining info conversationally:
+- If Linear/Jira: ask "Ticket ID?" then "Short description?"
+- If GitHub Issues: ask "Issue number?" then "Short description?"
+- If None: ask "What are you working on?"
 
-- **linear**: Ask "What's the ticket ID? (e.g. ENG-123)" then "Short description?" — branch: `feature/ENG-123-short-description`
-- **jira**: Ask "What's the ticket ID? (e.g. PROJ-456)" then "Short description?" — branch: `feature/PROJ-456-short-description`
-- **devops**: Ask "What's the work item ID? (e.g. 789)" then "Short description?" — branch: `feature/789-short-description`
-- **github**: Ask "What's the issue number? (e.g. 42)" then "Short description?" — branch: `feature/42-short-description`
-- **none**: Ask "What are you working on?" — branch: `feature/short-description`
+Branch naming:
+- Linear: `feature/ENG-123-short-description`
+- Jira: `feature/PROJ-456-short-description`
+- GitHub Issues: `feature/42-short-description`
+- None: `feature/short-description`
 
 Branch name rules: lowercase, words separated by hyphens, no special characters, max 50 chars total.
 
