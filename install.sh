@@ -22,6 +22,14 @@ mkdir -p "$HOME/.claude"
 symlink "claude/CLAUDE.md" ".claude/CLAUDE.md"
 symlink "claude/settings.json" ".claude/settings.json"
 
+# Claude skills
+mkdir -p "$HOME/.claude/skills"
+for skill in "$DOTFILES/claude/skills"/*/; do
+  [ -d "$skill" ] || continue
+  name=$(basename "$skill")
+  ln -sf "$skill" "$HOME/.claude/skills/$name"
+done
+
 # VS Code settings
 VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User"
 mkdir -p "$VSCODE_SETTINGS"
