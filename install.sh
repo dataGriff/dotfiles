@@ -28,7 +28,9 @@ mkdir -p "$HOME/.claude/skills"
 for skill in "$DOTFILES/claude/skills"/*/; do
   [ -d "$skill" ] || continue
   name=$(basename "$skill")
-  ln -sf "$skill" "$HOME/.claude/skills/$name"
+  # -n prevents ln from dereferencing an existing symlink-to-dir and
+  # creating the new link inside it on re-runs.
+  ln -snf "$skill" "$HOME/.claude/skills/$name"
 done
 
 # VS Code settings
