@@ -21,6 +21,7 @@ ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 mkdir -p "$HOME/.claude"
 symlink "claude/CLAUDE.md" ".claude/CLAUDE.md"
 symlink "claude/settings.json" ".claude/settings.json"
+symlink "claude/statusline-command.sh" ".claude/statusline-command.sh"
 
 # Claude skills
 mkdir -p "$HOME/.claude/skills"
