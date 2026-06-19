@@ -928,13 +928,120 @@ git push
 
 ---
 
-## Part 8: Claude Code Power User Setup
+## Part 8: Zed Setup
+
+Zed is a fast, GPU-accelerated editor with native Vim mode. You will keep VS Code for extension-heavy workflows (Docker, OpenAPI, remote SSH) and reach for Zed when you want low-latency multi-file editing or pure keyboard navigation.
+
+### Step 8.1 — Configure Settings
+
+Zed stores its settings in a JSON file at `~/.config/zed/settings.json`. You will put this in your dotfiles and symlink it, the same way you did for Ghostty and VS Code.
+
+```bash
+nano ~/dotfiles/zed/settings.json
+```
+
+Paste:
+
+```json
+{
+  "theme": "One Dark",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 14,
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 13,
+  "tab_size": 2,
+  "format_on_save": "on",
+  "autosave": "on_focus_change",
+  "show_whitespaces": "selection",
+  "scrollbar": { "show": "never" },
+  "minimap": { "show": "never" },
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+    "font_size": 13
+  },
+  "vim_mode": true,
+  "telemetry": { "diagnostics": false, "metrics": false },
+  "features": { "edit_prediction_provider": "zed" }
+}
+```
+
+Save and create the symlink:
+
+```bash
+mkdir -p "$HOME/.config/zed"
+ln -sf ~/dotfiles/zed/settings.json "$HOME/.config/zed/settings.json"
+```
+
+Open Zed and verify the theme is One Dark and the font is JetBrains Mono.
+
+**Vim mode is enabled by default.** `h j k l` to move, `i` to insert, `ESC` to exit insert mode, `:w` to save, `:q` to close. If you would rather not use Vim mode, change `"vim_mode": true` to `false` and reopen Zed.
+
+**What `autosave: on_focus_change` does:** the moment you switch away from a buffer, Zed saves it. Combined with `format_on_save`, your file is always formatted and saved without you thinking about it.
+
+**Why telemetry is off:** Zed sends anonymised diagnostics by default. Disabled here to keep the editor offline-quiet — flip back on if you want to help upstream.
+
+---
+
+### Step 8.2 — Why Zed alongside VS Code
+
+VS Code remains your default for extension-driven work — Docker, OpenAPI/AsyncAPI editing, Remote SSH, Markdown previews, GitLens. Zed is your fast path for everything else: jumping between files in a large repo, editing with Vim motions, reading code with very low input latency, and using its built-in AI panel without installing extensions.
+
+Treat them as complementary, not competing. Both share the same font, theme, and formatting conventions so switching between them feels seamless.
+
+---
+
+### Step 8.3 — Key Zed Shortcuts
+
+**App commands** (work regardless of Vim mode):
+
+| Shortcut | Action |
+|---|---|
+| `CMD + P` | Quick open any file |
+| `CMD + SHIFT + P` | Command palette |
+| `CMD + \` | Toggle left panel |
+| `CMD + J` | Toggle terminal panel |
+| `CMD + SHIFT + F` | Project-wide search |
+| `CMD + D` | Select next occurrence |
+| `CMD + /` | Toggle comment |
+| `CMD + B` | Go to definition |
+| `F12` | Go to definition |
+| `CMD + SHIFT + M` | Toggle problems panel |
+| `CMD + K, S` | Save without formatting (chord — `CMD + K`, then `S`) |
+
+**Vim motions** (active because `vim_mode: true`):
+
+| Key | Action |
+|---|---|
+| `h / j / k / l` | Left / down / up / right |
+| `w / b` | Next / previous word |
+| `gg / G` | Top / bottom of file |
+| `i / a / o` | Insert / append / new line below |
+| `ESC` | Exit insert mode |
+| `/` | Search forward |
+| `:w` | Save buffer |
+| `:q` | Close buffer |
+| `dd / yy / p` | Delete / yank / paste line |
+
+---
+
+### Step 8.4 — Commit Your Zed Config
+
+```bash
+cd ~/dotfiles
+git add zed/ install.sh Brewfile docs/
+git commit -m "feat: add Zed IDE settings and setup"
+git push
+```
+
+---
+
+## Part 9: Claude Code Power User Setup
 
 This is the section that transforms Claude from a chatbot into an integrated part of your development workflow. Take your time here — this pays off every day.
 
 ---
 
-### Step 8.1 — Verify Claude Code is Installed
+### Step 9.1 — Verify Claude Code is Installed
 
 Claude Code was installed in Part 3 via the Brewfile. Verify:
 
@@ -952,7 +1059,7 @@ Follow the authentication flow. Once complete, you are inside an interactive Cla
 
 ---
 
-### Step 8.2 — Create Your Global CLAUDE.md
+### Step 9.2 — Create Your Global CLAUDE.md
 
 **What CLAUDE.md is:** Every time Claude Code starts, it reads `~/.claude/CLAUDE.md` as context before doing anything. Your global one is read in *every* session, regardless of which project you are in. It is how you tell Claude who you are and how you like to work — once, permanently.
 
@@ -995,7 +1102,7 @@ ln -sf ~/dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
 
 ---
 
-### Step 8.3 — Configure Claude Code Settings
+### Step 9.3 — Configure Claude Code Settings
 
 **What this file is:** `~/.claude/settings.json` controls Claude Code's behaviour — the model, theme, and hooks (shell commands that run in response to Claude's actions).
 
@@ -1045,7 +1152,7 @@ ln -sf ~/dotfiles/claude/settings.json ~/.claude/settings.json
 
 ---
 
-### Step 8.4 — Add MCP Servers Per Project
+### Step 9.4 — Add MCP Servers Per Project
 
 **What MCP servers are:** MCP stands for Model Context Protocol. It is a standard that lets Claude connect to external services and use them as tools during a session. With MCP servers, Claude can read your GitHub issues, query your Linear backlog, search the web, and more.
 
@@ -1105,7 +1212,7 @@ claude mcp list
 
 ---
 
-### Step 8.5 — Claude Code Usage Patterns
+### Step 9.5 — Claude Code Usage Patterns
 
 These are the daily patterns that make Claude Code genuinely useful.
 
@@ -1152,7 +1259,7 @@ claude "draft a ticket for this bug: users cannot log in with Google OAuth after
 
 ---
 
-## Part 9: cmux Setup
+## Part 10: cmux Setup
 
 **What cmux is:** A terminal environment designed specifically for running Claude Code agents. Where Ghostty is your general dev terminal, cmux is optimised for agentic workflows — multi-pane layouts, Claude output rendering, and markdown display.
 
@@ -1184,25 +1291,25 @@ cmux
 - `CMD + ←/→` — jump to start/end of line
 - `OPT + ←/→` — skip words
 
-**Notifications:** Combined with the hook you set up in Step 8.3, you get notified when agents complete regardless of which terminal you are looking at.
+**Notifications:** Combined with the hook you set up in Step 9.3, you get notified when agents complete regardless of which terminal you are looking at.
 
 **Workspace naming:** Name each cmux workspace to match the task: `api`, `frontend`, `auth-refactor`. cmux ties every notification to the workspace it came from, giving you free context.
 
 ---
 
-## Part 10: Chrome Setup
+## Part 11: Chrome Setup
 
-### Step 10.1 — Set as Default Browser
+### Step 11.1 — Set as Default Browser
 
 **System Settings → Desktop & Dock → Default web browser → Google Chrome**
 
-### Step 10.2 — Sign In and Configure
+### Step 11.2 — Sign In and Configure
 
 - Sign into Chrome with your Google account to sync bookmarks and settings
 - **Settings → Autofill and passwords → Google Password Manager → Offer to save passwords: Off** — 1Password handles this
 - **Settings → Privacy and security → Send "Do Not Track" requests: On**
 
-### Step 10.3 — Install Extensions
+### Step 11.3 — Install Extensions
 
 | Extension | Why |
 |---|---|
@@ -1214,7 +1321,7 @@ cmux
 | **Vimium** | Keyboard navigation for the browser — most impactful extension here |
 | **1Password** | Password manager integration |
 
-### Step 10.4 — Learn Vimium
+### Step 11.4 — Learn Vimium
 
 **What Vimium is:** A Chrome extension that adds keyboard shortcuts inspired by Vim. It lets you navigate the web entirely without touching the mouse.
 
@@ -1234,17 +1341,17 @@ The `F` command is transformative. On any page, press `F` and every link and but
 
 ---
 
-## Part 11: Password Manager — 1Password
+## Part 12: Password Manager — 1Password
 
 **Why 1Password:** For a developer handling production credentials, API keys, and client data, the password manager is critical infrastructure. 1Password has a strong security track record and supports CLI access for scripts.
 
-### Step 11.1 — Set Up 1Password
+### Step 12.1 — Set Up 1Password
 
 1Password is installed. Open it and create an account at 1password.com.
 
 Install the Chrome extension from the 1Password website.
 
-### Step 11.2 — Sign In to the CLI
+### Step 12.2 — Sign In to the CLI
 
 The 1Password CLI (`op`) was installed via the Brewfile. Sign in:
 
@@ -1266,7 +1373,7 @@ The secret never touches a file. It is retrieved from 1Password's encrypted vaul
 
 ---
 
-## Part 12: Git Configuration
+## Part 13: Git Configuration
 
 Git reads a global config file for settings that apply to all repos on this machine.
 
@@ -1348,11 +1455,11 @@ git push
 
 ---
 
-## Part 13: Program Management
+## Part 14: Program Management
 
 Install your project management tool of choice — Linear is included in the Brewfile. Sign in with your work or personal account.
 
-If using Linear, the MCP integration from Part 8.4 lets Claude interact with your backlog directly:
+If using Linear, the MCP integration from Step 9.4 lets Claude interact with your backlog directly:
 
 ```bash
 cc "what are my open issues in Linear assigned to me?"
@@ -1372,9 +1479,9 @@ cc "create a Linear ticket: title 'Fix OAuth refresh flow', problem: users canno
 
 ---
 
-## Part 14: Final Commit & Verification
+## Part 15: Final Commit & Verification
 
-### Step 14.1 — Run the Install Script
+### Step 15.1 — Run the Install Script
 
 ```bash
 cd ~/dotfiles
@@ -1383,7 +1490,7 @@ cd ~/dotfiles
 
 You should see "All dotfiles linked." without errors.
 
-### Step 14.2 — Final Commit
+### Step 15.2 — Final Commit
 
 ```bash
 cd ~/dotfiles
@@ -1392,7 +1499,7 @@ git commit -m "chore: complete initial setup"
 git push
 ```
 
-### Step 14.3 — Verification Checklist
+### Step 15.3 — Verification Checklist
 
 **Shell:**
 - [ ] Open Ghostty — prompt should show with icons and colour (Oh My Zsh agnoster theme)
@@ -1424,7 +1531,7 @@ git push
 
 ---
 
-## Part 15: Maintenance
+## Part 16: Maintenance
 
 ### Weekly routine
 
@@ -1468,7 +1575,7 @@ cd ~/dotfiles && git add zsh/.zshrc && git commit -m "chore: update zshrc" && gi
 | **Secrets** | `.zshrc.local` + 1Password CLI | API keys never in plaintext files or git |
 | **Launcher** | Raycast | App switching, clipboard, snippets, extensions without touching the mouse |
 | **Menu bar** | Stats + Itsycal + HiddenBar | System info at a glance, no clutter |
-| **Editor** | VS Code with extensions | Formatting, linting, git insight, error visibility, AI integration |
+| **Editors** | VS Code with extensions + Zed with Vim mode | VS Code for extension-driven workflows; Zed for low-latency keyboard editing |
 | **AI pair** | Claude Code + CLAUDE.md + MCP | Claude knows your context; MCP servers added per-project to avoid bloating every session |
 | **Agent terminal** | cmux | Multi-pane Claude sessions with notifications |
 | **Desktops** | 3 separate workspaces | Focus by context — code, comms, planning |

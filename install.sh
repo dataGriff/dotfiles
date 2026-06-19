@@ -38,6 +38,10 @@ VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User"
 mkdir -p "$VSCODE_SETTINGS"
 ln -sf "$DOTFILES/vscode/settings.json" "$VSCODE_SETTINGS/settings.json"
 
+# Zed
+mkdir -p "$HOME/.config/zed"
+ln -sf "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
+
 # Git local config (not committed — contains email/name)
 if [ ! -f "$HOME/.gitconfig.local" ]; then
   echo ""
