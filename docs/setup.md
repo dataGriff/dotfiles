@@ -1022,7 +1022,7 @@ VS Code remains your default for extension-driven work — Docker, OpenAPI/Async
 
 Treat them as complementary, not competing. Both share the same font, theme, and formatting conventions so switching between them feels seamless.
 
-**Wire Claude into the Agent Panel:** the `agent_servers.claude-acp` block in your `settings.json` registers Claude as an agent in Zed. To activate it, open the Agent Panel (`CMD + SHIFT + A`), pick **Claude Agent** in the thread list, then type `/login` inside the thread and authenticate with your Anthropic API key or Claude Code subscription. One-time setup; persists across projects.
+**Wire Claude into the Agent Panel:** the `agent_servers.claude-acp` block in your `settings.json` registers Claude as an agent in Zed. To activate it, open the Agent Panel (`CMD + ?`), pick **Claude Agent** in the thread list, then type `/login` inside the thread and authenticate with your Anthropic API key or Claude Code subscription. One-time setup; persists across projects.
 
 ---
 
@@ -1034,12 +1034,13 @@ Treat them as complementary, not competing. Both share the same font, theme, and
 |---|---|
 | `CMD + P` | Quick open any file |
 | `CMD + SHIFT + P` | Command palette |
-| `CMD + \` | Toggle left panel |
-| `CMD + J` | Toggle terminal panel |
+| `CMD + B` | Toggle left dock (project tree) |
+| `CMD + R` | Toggle right dock |
+| `CMD + J` | Toggle bottom dock (terminal) |
+| `CMD + ?` | Toggle Agent Panel focus |
 | `CMD + SHIFT + F` | Project-wide search |
 | `CMD + D` | Select next occurrence |
 | `CMD + /` | Toggle comment |
-| `CMD + B` | Go to definition |
 | `F12` | Go to definition |
 | `CMD + SHIFT + M` | Toggle problems panel |
 | `CMD + K, S` | Save without formatting (chord — `CMD + K`, then `S`) |

@@ -62,12 +62,14 @@
 |---|---|
 | `CMD + P` | Quick open file |
 | `CMD + SHIFT + P` | Command palette |
-| `CMD + \` | Toggle left panel |
-| `CMD + J` | Toggle terminal panel |
+| `CMD + B` | Toggle left dock (project tree) |
+| `CMD + R` | Toggle right dock |
+| `CMD + J` | Toggle bottom dock (terminal) |
+| `CMD + ?` | Toggle Agent Panel focus |
 | `CMD + SHIFT + F` | Project-wide search |
 | `CMD + D` | Select next occurrence |
 | `CMD + /` | Toggle comment |
-| `CMD + B` / `F12` | Go to definition |
+| `F12` | Go to definition |
 | `CMD + SHIFT + M` | Toggle problems panel |
 | `CMD + K, S` | Save without formatting |
 

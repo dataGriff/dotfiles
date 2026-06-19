@@ -31,7 +31,7 @@ Memorise these. Everything else can wait.
 | `CMD + P` | Quick-open any file in the project by name |
 | `CMD + SHIFT + F` | Project-wide search across every file |
 | `CMD + J` | Toggle the integrated terminal |
-| `CMD + \` | Toggle the left panel (project tree / agent panel) |
+| `CMD + B` | Toggle the left panel (project tree) |
 
 The command palette is the single most important shortcut. When you do not know how to do something, hit `CMD + SHIFT + P` and type what you want — Zed will surface the action and its keybinding.
 
@@ -77,7 +77,7 @@ Reference: <https://zed.dev/docs/getting-started>
 | `yy` | Yank (copy) the current line |
 | `p` | Paste after the cursor |
 | `u` | Undo |
-| `CMD + R` | Redo |
+| `CTRL + R` | Redo (Vim convention — `CMD + R` is reused by Zed to toggle the right dock) |
 
 Three things your `vim` block in `settings.json` does that you should know about:
 - **`use_system_clipboard: "always"`** — `y` and `p` use the macOS clipboard. Copy in Zed, paste in any other app.
@@ -94,7 +94,7 @@ Your `agent_servers.claude-acp` block (already in `settings.json`) wires Claude 
 
 **One-time setup:**
 
-1. Open the Agent Panel — `CMD + SHIFT + A` (or `CMD + SHIFT + P` → "Agent: Toggle Panel").
+1. Open the Agent Panel — `CMD + ?` (or `CMD + SHIFT + P` → "Agent: Toggle Focus").
 2. In the new thread selector, choose **Claude Agent** (not the default "Zed Agent").
 3. Inside the thread, type `/login` and press `ENTER`.
 4. Authenticate with your **Anthropic API key** or your **Claude Code** subscription, whichever you use.
