@@ -63,9 +63,8 @@
 | `CMD + P` | Quick open file |
 | `CMD + SHIFT + P` | Command palette |
 | `CMD + B` | Toggle left dock (project tree) |
-| `CMD + R` | Toggle right dock |
+| `CMD + R` | Toggle right dock (Agent Panel by default) |
 | `CMD + J` | Toggle bottom dock (terminal) |
-| `CMD + ?` | Toggle Agent Panel focus |
 | `CMD + SHIFT + F` | Project-wide search |
 | `CMD + D` | Select next occurrence |
 | `CMD + /` | Toggle comment |

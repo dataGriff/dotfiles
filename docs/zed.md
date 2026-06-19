@@ -94,7 +94,7 @@ Your `agent_servers.claude-acp` block (already in `settings.json`) wires Claude 
 
 **One-time setup:**
 
-1. Open the Agent Panel — `CMD + ?` (or `CMD + SHIFT + P` → "Agent: Toggle Focus").
+1. Open the Agent Panel — press `CMD + R` (toggles the right dock, where the Agent Panel lives by default). The official default binding is `CMD + ?`, but macOS reserves `CMD + SHIFT + /` (the keystroke that produces `?`) for the system-wide **Show Help menu**, so the upstream default never reaches Zed. To use it anyway, disable the system shortcut at **System Settings → Keyboard → Keyboard Shortcuts → App Shortcuts → Show Help menu**. The reliable fallback that always works: `CMD + SHIFT + P` → type "agent toggle focus".
 2. In the new thread selector, choose **Claude Agent** (not the default "Zed Agent").
 3. Inside the thread, type `/login` and press `ENTER`.
 4. Authenticate with your **Anthropic API key** or your **Claude Code** subscription, whichever you use.
