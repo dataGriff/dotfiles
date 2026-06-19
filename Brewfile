@@ -35,6 +35,7 @@ cask "cmux"
 # Mac apps
 cask "ghostty"
 cask "visual-studio-code"
+cask "zed"
 cask "google-chrome"
 cask "docker-desktop"
 cask "raycast"

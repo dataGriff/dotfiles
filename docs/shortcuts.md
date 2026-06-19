@@ -54,6 +54,37 @@
 | `F12` | Go to definition |
 | `OPT + F12` | Peek definition |
 
+## Zed
+
+### App commands
+
+| Shortcut | Action |
+|---|---|
+| `CMD + P` | Quick open file |
+| `CMD + SHIFT + P` | Command palette |
+| `CMD + \` | Toggle left panel |
+| `CMD + J` | Toggle terminal panel |
+| `CMD + SHIFT + F` | Project-wide search |
+| `CMD + D` | Select next occurrence |
+| `CMD + /` | Toggle comment |
+| `CMD + B` / `F12` | Go to definition |
+| `CMD + SHIFT + M` | Toggle problems panel |
+| `CMD + K, S` | Save without formatting |
+
+### Vim motions (default: `vim_mode: true`)
+
+| Key | Action |
+|---|---|
+| `h / j / k / l` | Left / down / up / right |
+| `w / b` | Next / previous word |
+| `gg / G` | Top / bottom of file |
+| `i / a / o` | Insert / append / new line below |
+| `ESC` | Exit insert mode |
+| `/` | Search forward |
+| `:w` | Save buffer |
+| `:q` | Close buffer |
+| `dd / yy / p` | Delete / yank / paste line |
+
 ## Chrome + Vimium
 
 | Key | Action |
