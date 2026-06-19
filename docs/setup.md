@@ -930,7 +930,7 @@ git push
 
 ## Part 8: Zed Setup
 
-Zed is a fast, GPU-accelerated editor with native Vim mode. You will keep VS Code for extension-heavy workflows (Docker, OpenAPI, remote SSH) and reach for Zed when you want low-latency multi-file editing or pure keyboard navigation.
+Zed is a fast, GPU-accelerated GUI editor. In this setup it is a **secondary tool** — cmux + Claude (Part 10) is your primary work environment. Install and configure Zed so it is available for the occasional case where you want a GUI editor open on one project, but do not expect to live in it day-to-day. The Day-1 tutorial (Step 8.5) is short for the same reason.
 
 ### Step 8.1 — Configure Settings
 
@@ -1617,7 +1617,7 @@ cd ~/dotfiles && git add zsh/.zshrc && git commit -m "chore: update zshrc" && gi
 | **Secrets** | `.zshrc.local` + 1Password CLI | API keys never in plaintext files or git |
 | **Launcher** | Raycast | App switching, clipboard, snippets, extensions without touching the mouse |
 | **Menu bar** | Stats + Itsycal + HiddenBar | System info at a glance, no clutter |
-| **Editors** | VS Code with extensions + Zed with Vim mode | VS Code for extension-driven workflows; Zed for low-latency keyboard editing |
+| **Editors** | cmux + Claude (primary); VS Code and Zed as secondary GUI editors | cmux + Claude is the day-to-day loop; reach for VS Code for extension-driven work, Zed for occasional single-project GUI editing |
 | **AI pair** | Claude Code + CLAUDE.md + MCP | Claude knows your context; MCP servers added per-project to avoid bloating every session |
 | **Agent terminal** | cmux | Multi-pane Claude sessions with notifications |
 | **Desktops** | 3 separate workspaces | Focus by context — code, comms, planning |

@@ -8,6 +8,16 @@
 
 ---
 
+## When to use Zed
+
+Your primary work environment is **cmux + Claude** (see [Part 10 of the setup guide](setup.md)). cmux gives you multiple terminal panes per project, an inline diff view, and a file directory on the right — exactly the "switch context per pane" layout, except the editor is Claude inside the pane rather than a GUI.
+
+Reach for Zed when you want a GUI editor for a single project — manual browsing, drag-to-select, mouse-driven file ops, or pair-debugging where multiple visible buffers help. The rest of this tutorial assumes that case: one Zed window open on one project, used occasionally.
+
+If your default is to ask Claude to make the change rather than to manually edit it, you may rarely open Zed at all. That is fine and expected.
+
+---
+
 ## 1. First Launch
 
 Open Zed (`open -a Zed` or via Raycast / Spotlight). On first launch you will see:
