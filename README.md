@@ -3,7 +3,8 @@
 A keyboard-first, Claude-augmented macOS developer environment. Reproducible from scratch.
 
 **Full setup guide:** [docs/setup.md](docs/setup.md)  
-**Keyboard shortcuts:** [docs/shortcuts.md](docs/shortcuts.md)
+**Keyboard shortcuts:** [docs/shortcuts.md](docs/shortcuts.md)  
+**Zed Day-1 tutorial:** [docs/zed.md](docs/zed.md)
 
 ---
 

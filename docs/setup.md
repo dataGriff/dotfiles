@@ -944,7 +944,19 @@ Paste:
 
 ```json
 {
-  "theme": "One Dark",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "agent_servers": {
+    "claude-acp": { "type": "registry" }
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 14,
   "ui_font_family": "JetBrainsMono Nerd Font",
@@ -955,13 +967,33 @@ Paste:
   "show_whitespaces": "selection",
   "scrollbar": { "show": "never" },
   "minimap": { "show": "never" },
+  "cursor_blink": false,
+  "relative_line_numbers": true,
+  "vertical_scroll_margin": 3,
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": { "enabled": true },
+    "hunk_style": "staged_hollow"
+  },
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
     "font_size": 13
   },
   "vim_mode": true,
-  "telemetry": { "diagnostics": false, "metrics": false },
-  "features": { "edit_prediction_provider": "zed" }
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_smartcase_find": true,
+    "toggle_relative_line_numbers": true,
+    "highlight_on_yank_duration": 200
+  },
+  "edit_predictions": { "provider": "zed" },
+  "telemetry": { "diagnostics": false, "metrics": false }
 }
 ```
 
@@ -972,9 +1004,11 @@ mkdir -p "$HOME/.config/zed"
 ln -sf ~/dotfiles/zed/settings.json "$HOME/.config/zed/settings.json"
 ```
 
-Open Zed and verify the theme is One Dark and the font is JetBrains Mono.
+Open Zed and verify the theme is One Dark, the font is JetBrains Mono, and line numbers are relative.
 
 **Vim mode is enabled by default.** `h j k l` to move, `i` to insert, `ESC` to exit insert mode, `:w` to save, `:q` to close. If you would rather not use Vim mode, change `"vim_mode": true` to `false` and reopen Zed.
+
+**Edit Predictions sign-in:** on first launch Zed will prompt you to sign in. Accept it — that activates Zeta, Zed's inline AI completion (free tier: 2,000 completions/month). The `edit_predictions` block in your config is what wires it in.
 
 **What `autosave: on_focus_change` does:** the moment you switch away from a buffer, Zed saves it. Combined with `format_on_save`, your file is always formatted and saved without you thinking about it.
 
@@ -988,6 +1022,8 @@ VS Code remains your default for extension-driven work — Docker, OpenAPI/Async
 
 Treat them as complementary, not competing. Both share the same font, theme, and formatting conventions so switching between them feels seamless.
 
+**Wire Claude into the Agent Panel:** the `agent_servers.claude-acp` block in your `settings.json` registers Claude as an agent in Zed. To activate it, open the Agent Panel — press `CMD + R` to toggle the right dock (its default home), or run `CMD + SHIFT + P` → "agent toggle focus". Pick **Claude Agent** in the thread list, then type `/login` inside the thread and authenticate with your Anthropic API key or Claude Code subscription. One-time setup; persists across projects. *(Zed's literal default is `CMD + ?`, but macOS reserves `CMD + SHIFT + /` for the Help menu and swallows it before Zed sees it — that's why the upstream default appears to "do nothing".)*
+
 ---
 
 ### Step 8.3 — Key Zed Shortcuts
@@ -998,12 +1034,12 @@ Treat them as complementary, not competing. Both share the same font, theme, and
 |---|---|
 | `CMD + P` | Quick open any file |
 | `CMD + SHIFT + P` | Command palette |
-| `CMD + \` | Toggle left panel |
-| `CMD + J` | Toggle terminal panel |
+| `CMD + B` | Toggle left dock (project tree) |
+| `CMD + R` | Toggle right dock (Agent Panel by default) |
+| `CMD + J` | Toggle bottom dock (terminal) |
 | `CMD + SHIFT + F` | Project-wide search |
 | `CMD + D` | Select next occurrence |
 | `CMD + /` | Toggle comment |
-| `CMD + B` | Go to definition |
 | `F12` | Go to definition |
 | `CMD + SHIFT + M` | Toggle problems panel |
 | `CMD + K, S` | Save without formatting (chord — `CMD + K`, then `S`) |
@@ -1032,6 +1068,12 @@ git add zed/ install.sh Brewfile docs/
 git commit -m "feat: add Zed IDE settings and setup"
 git push
 ```
+
+---
+
+### Step 8.5 — Day-1 Tutorial
+
+Install + config gets Zed running, but it does not teach you how to use it. Work through [Zed Day-1 Tutorial](zed.md) next — 20–30 minutes, covers the command palette, file finder, Vim mode primer, Agent Panel sign-in, Edit Predictions, language servers, and project-specific settings.
 
 ---
 
