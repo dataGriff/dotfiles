@@ -54,10 +54,6 @@ alias dev='cd ~/dev'
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# ── NVM (Node version manager) ────────────────────────────────────────────────
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
 # ── Load local secrets (never committed to git) ───────────────────────────────
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 

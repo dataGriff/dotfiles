@@ -17,11 +17,7 @@ brew "zsh"
 brew "go-task"
 brew "spectral-cli"
 
-# Dev runtimes
-brew "node"
-brew "python"
-brew "pyenv"
-brew "nvm"
+# Dev runtimes — mise manages node/python (see mise/config.toml)
 brew "mise"
 
 # Secrets management
