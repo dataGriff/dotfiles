@@ -1,0 +1,29 @@
+version: '3'
+
+tasks:
+  doctor:
+    desc: Read-only health audit — symlinks, brew drift, outdated, mise
+    cmds:
+      - ./bin/dotfiles-doctor.sh
+
+  install:
+    desc: Symlink all dotfiles into place
+    cmds:
+      - ./install.sh
+
+  sync:
+    desc: Install everything from the Brewfile, then relink dotfiles
+    cmds:
+      - brew bundle install --file Brewfile
+      - ./install.sh
+
+  upgrade:
+    desc: Update and upgrade brew formulae, casks, and mise runtimes
+    cmds:
+      - brew update && brew upgrade && brew upgrade --cask && brew cleanup
+      - mise upgrade
+
+  cleanup:
+    desc: Preview packages installed but not in the Brewfile (dry run, never forces)
+    cmds:
+      - brew bundle cleanup --file Brewfile

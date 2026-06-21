@@ -92,6 +92,23 @@ export BRAVE_API_KEY=""
 | `py` | `python3` |
 | `ll` | `eza -la --icons --git` |
 | `serve` | `python3 -m http.server 8000` |
-| `brewup` | `brew update && brew upgrade && brew cleanup` |
+| `brewup` | `brew update && brew upgrade && brew upgrade --cask && brew cleanup && mise upgrade` |
 | `dotfiles` | `cd ~/dotfiles` |
+| `dotfiles-doctor` | `task -d ~/dotfiles doctor` — health audit |
 | `dev` | `cd ~/dev` |
+
+---
+
+## Maintenance
+
+The repo is the single source of truth: everything installed should be in the `Brewfile`, everything tracked should be installed, and config is only ever edited here (never the in-place copies under `~`).
+
+| Command | What it does |
+|---------|--------------|
+| `task doctor` (or `dotfiles-doctor`) | Read-only audit: symlink integrity, drift between installed packages and the Brewfile, outdated packages, mise runtimes |
+| `task sync` | Install everything from the Brewfile, then relink dotfiles |
+| `task upgrade` (or `brewup`) | Upgrade brew formulae, casks, and mise runtimes |
+| `task cleanup` | Preview installs not in the Brewfile (dry run — never forces) |
+| `/dotfiles` (Claude) | Run the audit and resolve drift interactively — adds untracked tools to the repo or uninstalls them, fixes links, opens a draft PR |
+
+**Installing a new tool:** add it to the `Brewfile` (or `mise/config.toml` for runtimes) and run `task sync` — never `brew install` directly, or it drifts from the repo. Runtimes (Node, Python, …) are managed by `mise`; per-project versions go in a project `mise.toml`, `.nvmrc`, or `.python-version`.

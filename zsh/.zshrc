@@ -48,6 +48,7 @@ alias py='python3'
 alias serve='python3 -m http.server 8000'
 alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup && mise upgrade'
 alias dotfiles='cd ~/dotfiles'
+alias dotfiles-doctor='task -d "$HOME/dotfiles" doctor'
 alias dev='cd ~/dev'
 
 # ── FZF ───────────────────────────────────────────────────────────────────────
