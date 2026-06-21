@@ -16,7 +16,7 @@ full-stack development, data engineering, DevOps, and program management.
 - Tracking tool is defined per-project. Ask if unclear.
 
 # Working Code Management
-- Create a new branch for work and commit to a draft PR at earliest possible convenience so code is available remotely. 
+- Always create a branch, commit, and open a draft PR automatically without asking — for both code and content changes. Draft PRs are pre-authorized as a routine, non-outward-facing step. Only confirm before marking a PR ready for review or merging.
 - Commit and push as often as possible aiming to prompt for a full request and merge when you have an appropriate deliverable.
 
 # Conventions
