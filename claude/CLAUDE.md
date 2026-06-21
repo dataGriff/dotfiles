@@ -15,11 +15,16 @@ full-stack development, data engineering, DevOps, and program management.
 - When drafting tickets or tasks, use: title, problem statement, acceptance criteria, effort estimate.
 - Tracking tool is defined per-project. Ask if unclear.
 
+# Working Code Management
+- Create a new branch for work and commit to a draft PR at earliest possible convenience so code is available remotely. 
+- Commit and push as often as possible aiming to prompt for a full request and merge when you have an appropriate deliverable.
+
 # Conventions
 - Commit messages: conventional commits format (feat:, fix:, chore:, etc.)
 - Stack, tooling, and code style are defined per-project in a local CLAUDE.md. Do not assume language or framework defaults.
 - Reduce duplication between what AI agents, developers, and CI run. Prefer single Taskfile task or mise task references that all three invoke, so versions and tooling stay consistent across contexts.
 
+
 # Configuration management
-- All configuration file changes must be made in ~/dotfiles and source controlled there — never edit config files directly in their installed locations (e.g. ~/.zshrc, ~/.claude/settings.json, etc.).
+- All global configuration file changes must be made in ~/dotfiles and source controlled there — never edit config files directly in their installed locations (e.g. ~/.zshrc, ~/.claude/settings.json, etc.).
 - Never put secrets, credentials, API keys, or PII into dotfiles. These must be handled as documented in the dotfiles repo (`.zshrc.local` for env vars, 1Password CLI for credentials).
