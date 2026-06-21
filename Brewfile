@@ -16,12 +16,15 @@ brew "htop"
 brew "zsh"
 brew "go-task"
 brew "spectral-cli"
+brew "lychee"
+brew "telnet"
+brew "pipx"
 
-# Dev runtimes
-brew "node"
-brew "python"
-brew "pyenv"
-brew "nvm"
+# Security / scanning
+brew "semgrep"
+brew "trivy"
+
+# Dev runtimes — mise manages node/python (see mise/config.toml)
 brew "mise"
 
 # Secrets management
@@ -44,7 +47,8 @@ cask "alt-tab"
 cask "hiddenbar"
 cask "itsycal"
 cask "time-out"
-cask "linear-linear"
+cask "linear"
+cask "bruno"
 cask "slack"
 cask "discord"
 cask "spotify"

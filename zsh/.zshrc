@@ -48,15 +48,12 @@ alias py='python3'
 alias serve='python3 -m http.server 8000'
 alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup && mise upgrade'
 alias dotfiles='cd ~/dotfiles'
+alias dotfiles-doctor='task -d "$HOME/dotfiles" doctor'
 alias dev='cd ~/dev'
 
 # ── FZF ───────────────────────────────────────────────────────────────────────
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# ── NVM (Node version manager) ────────────────────────────────────────────────
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # ── Load local secrets (never committed to git) ───────────────────────────────
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

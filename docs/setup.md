@@ -348,11 +348,7 @@ brew "zsh"
 brew "go-task"
 brew "spectral-cli"
 
-# Dev runtimes
-brew "node"
-brew "python"
-brew "pyenv"
-brew "nvm"
+# Dev runtimes — mise manages node/python (see mise/config.toml)
 brew "mise"
 
 # Secrets management
@@ -385,7 +381,7 @@ cask "font-jetbrains-mono-nerd-font"
 **What each category does:**
 
 - **CLI essentials:** Core command-line tools. `fzf` is a fuzzy finder, `ripgrep` is a fast search tool, `bat`/`eza` are better versions of `cat`/`ls`, `zoxide` is a smarter `cd`, `gh` is the GitHub CLI, `spectral-cli` lints OpenAPI and AsyncAPI specs.
-- **Dev runtimes:** Node.js, Python, and version managers (`nvm` for Node, `pyenv` for Python, `mise` as a unified polyglot runtime manager) so you can switch versions per project.
+- **Dev runtimes:** `mise` is the single polyglot runtime manager — it installs and switches Node.js, Python (and more) per project. Global versions are pinned in `mise/config.toml`; drop a `mise.toml`, `.nvmrc`, or `.python-version` into a repo to override per project.
 - **Casks:** Full Mac applications installed via Homebrew instead of manually downloading them.
 
 ---
@@ -553,17 +549,13 @@ alias ccr='claude --resume'
 # ── Dev shortcuts ─────────────────────────────────────────────────────────────
 alias py='python3'
 alias serve='python3 -m http.server 8000'
-alias brewup='brew update && brew upgrade && brew cleanup'
+alias brewup='brew update && brew upgrade && brew upgrade --cask && brew cleanup && mise upgrade'
 alias dotfiles='cd ~/dotfiles'
 alias dev='cd ~/dev'
 
 # ── FZF ───────────────────────────────────────────────────────────────────────
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# ── NVM (Node version manager) ────────────────────────────────────────────────
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # ── Load local secrets (never committed to git) ───────────────────────────────
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
@@ -1632,7 +1624,7 @@ cd ~/dotfiles && git add zsh/.zshrc && git commit -m "chore: update zshrc" && gi
 
 - [ ] **Stage Manager** — try it for a week; works well if you have many overlapping app windows
 - [ ] **Raycast Pro** — revisit if you get a second Mac; the main benefit is config sync
-- [ ] **pyenv** — set up Python version management per project
+- [ ] **mise tasks** — move common project commands into `mise.toml` tasks so agents, devs, and CI all run the same thing
 - [ ] **GitHub Actions** — automate testing and deployments; Claude can help write workflows
 - [ ] **Claude Code hooks** — explore other hook types (PreToolUse, PostToolUse) to customise Claude's behaviour further
 - [ ] **tmux** — a more general-purpose terminal multiplexer if you find cmux limiting

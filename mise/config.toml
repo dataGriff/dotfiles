@@ -1,0 +1,10 @@
+# Global mise config — single runtime manager (replaces nvm + pyenv)
+# Per-project versions: add a mise.toml, .nvmrc, or .python-version to the repo.
+
+[tools]
+node = "lts"
+python = "3.12"
+
+[settings]
+# Honour existing .nvmrc / .python-version files so per-project pins keep working.
+idiomatic_version_file_enable_tools = ["node", "python"]

@@ -17,6 +17,14 @@ symlink "git/.gitconfig" ".gitconfig"
 mkdir -p "$HOME/.config/ghostty"
 ln -sf "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 
+# mise (runtime manager)
+mkdir -p "$HOME/.config/mise"
+ln -sf "$DOTFILES/mise/config.toml" "$HOME/.config/mise/config.toml"
+if command -v mise >/dev/null 2>&1; then
+  mise trust "$DOTFILES/mise/config.toml"
+  mise install
+fi
+
 # Claude
 mkdir -p "$HOME/.claude"
 symlink "claude/CLAUDE.md" ".claude/CLAUDE.md"
