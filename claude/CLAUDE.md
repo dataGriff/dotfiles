@@ -25,6 +25,13 @@ full-stack development, data engineering, DevOps, and program management.
 - Reduce duplication between what AI agents, developers, and CI run. Prefer single Taskfile task or mise task references that all three invoke, so versions and tooling stay consistent across contexts.
 
 
+# Goals & focus
+- My active objectives are injected each session from `~/.claude/okrs/active.md` (may be absent — if so, ignore this section).
+- Treat them as my current intent. When I propose substantial new work, briefly check it against these objectives.
+- If a request is a side quest (not serving an active objective), do it but flag it in one line: which objective it diverges from, or that it serves none.
+- Flag and proceed — never block or interrogate. Keep it to a single line.
+- These are portfolio-level. Per-project goals, when present, take precedence for in-project task decisions.
+
 # Configuration management
 - All global configuration file changes must be made in ~/dotfiles and source controlled there — never edit config files directly in their installed locations (e.g. ~/.zshrc, ~/.claude/settings.json, etc.).
 - Never put secrets, credentials, API keys, or PII into dotfiles. These must be handled as documented in the dotfiles repo (`.zshrc.local` for env vars, 1Password CLI for credentials).

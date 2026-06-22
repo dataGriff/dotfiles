@@ -41,6 +41,9 @@ for skill in "$DOTFILES/claude/skills"/*/; do
   ln -snf "$skill" "$HOME/.claude/skills/$name"
 done
 
+# Claude OKRs (source-controlled goal context, injected via SessionStart hook)
+ln -snf "$DOTFILES/claude/okrs" "$HOME/.claude/okrs"
+
 # VS Code settings
 VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User"
 mkdir -p "$VSCODE_SETTINGS"
