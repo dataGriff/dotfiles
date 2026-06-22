@@ -3,6 +3,16 @@
     "defaultMode": "auto"
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat ~/.claude/okrs/active.md 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
