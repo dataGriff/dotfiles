@@ -15,13 +15,14 @@ The single entry point for getting this Mac's settings right. Running the skill 
 3. **Audit the manual settings** it can read, comparing each to the documented target:
    - **Login items** → `osascript -e 'tell application "System Events" to get the name of every login item'` — expect Stats, Itsycal, Time Out, Raycast, Hidden Bar, Alt-Tab.
    - **Stats** → `defaults read eu.exelban.Stats` — CPU% + MEM% shown, clock format `HH:mm`. This is where digital menu-bar time comes from (system clock is intentionally analogue).
-   - **Itsycal** → `defaults read com.mowglii.ItsycalApp` — date format `E d MMM`.
+   - **Itsycal** → `defaults read com.mowglii.ItsycalApp` — menu-bar date. Itsycal 0.15+ replaced the old date-format string with toggles: expect `ShowDayOfWeekInIcon = 1`, `ShowMonthInIcon = 1`, `MenuBarIconType = 1` (the day number always shows) → renders "Sun 28 Jun", i.e. the documented `E d MMM`. Do not look for a `format`/`DateFormat` key; it doesn't exist in current versions.
    - **Desktop-switch hotkeys** → `defaults read com.apple.symbolichotkeys` — `CTRL+1/2/3` for Desktops 1–3.
    - **Chrome default browser** → report whether Chrome is the current default handler.
 4. **Report** per item: ✓ matches intent / ⚠ drifted / — can't detect.
 5. **Guide** the GUI steps that can't be set safely from a script, confirming as the user completes each:
    - Three Mission Control desktops + assign apps (Dev / Comms / PM per Part 5).
-   - Stats first-time config (CPU%/MEM%/clock `HH:mm`) and Itsycal date format, if the audit showed them unset.
+   - Stats first-time config (CPU%/MEM%/clock `HH:mm`), if the audit showed it unset.
+   - Itsycal menu-bar date, if its toggles are off: Preferences → enable **Show day of week** and **Show month** (Itsycal 0.15+ has no format-string field).
    - Login items for the six menu-bar apps, if any are missing.
    - Set Chrome as default browser, if it isn't.
 

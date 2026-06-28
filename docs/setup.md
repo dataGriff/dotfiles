@@ -758,7 +758,7 @@ Hidden Bar creates a separator in your menu bar. Icons to the right of the separ
 **Itsycal:**
 
 - Right-click → Preferences
-- Set the date format to: `E d MMM` — shows "Sun 26 Apr"
+- Itsycal 0.15+ has no date-format field — instead enable **Show day of week** and **Show month** (the day number always shows). That renders "Sun 28 Jun", i.e. `E d MMM`.
 - Tick "Show week numbers" if useful
 - Drag it to sit next to the Stats clock
 
