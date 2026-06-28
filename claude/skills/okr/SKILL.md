@@ -110,7 +110,7 @@ Either way, accept the user's final answer.
 
 ## Step 6 — Output path
 
-Default filename: `okrs/<year>-<quarter-or-period>-<slugified-objective>.md` in the current working directory. Confirm the path with the user before writing. If the directory doesn't exist, create it via Bash (`mkdir -p`).
+Default filename: `okrs/active/<year>-<quarter-or-period>-<slugified-objective>.md` in the current working directory. Files under `okrs/active/` are the user's live suite, injected into every session. Confirm the path with the user before writing. If the directory doesn't exist, create it via Bash (`mkdir -p`).
 
 Slug rules: lowercase, hyphens for spaces, strip punctuation, max ~6 words.
 

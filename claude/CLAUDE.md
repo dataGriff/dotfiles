@@ -26,8 +26,9 @@ full-stack development, data engineering, DevOps, and program management.
 
 
 # Goals & focus
-- My active objectives are injected each session from `~/.claude/okrs/active.md` (may be absent — if so, ignore this section).
-- Treat them as my current intent. When I propose substantial new work, briefly check it against these objectives.
+- My active objectives are a *suite* of OKRs, injected each session from `~/.claude/okrs/active/` (may be empty — if so, ignore this section).
+- This suite is the prioritised output of my intent. Raw intent lives upstream in `~/.claude/intent.md`; the `/intent` skill discovers it and promotes the top items into OKRs. The full method is in `docs/method.md`.
+- Treat the suite as my current intent. When I propose substantial new work, briefly check it against these objectives.
 - If a request is a side quest (not serving an active objective), do it but flag it in one line: which objective it diverges from, or that it serves none.
 - Flag and proceed — never block or interrogate. Keep it to a single line.
 - These are portfolio-level. Per-project goals, when present, take precedence for in-project task decisions.
