@@ -633,7 +633,13 @@ git push
 
 ## Part 5: macOS System Settings
 
-Before setting up applications, dial in the system itself. Open **System Settings** (Apple menu → System Settings or `CMD + Space` → "System Settings").
+These settings are split into two layers. The scriptable ones are tracked in the
+dotfiles and applied with one command; the rest are GUI/third-party and are walked
+through interactively. **Run `/macos-setup` to do both in one pass** — it applies the
+tracked settings (`task macos`), verifies them (`task doctor` section 6), then audits
+and guides the manual items below. You can also run `task macos` on its own.
+
+**Scripted** (source of truth: `macos/settings.sh`, applied by `task macos`, verified by `task doctor`):
 
 | Setting | Value | Why |
 |---|---|---|
@@ -646,13 +652,19 @@ Before setting up applications, dial in the system itself. Open **System Setting
 | Dock → Auto-hide | On | Maximise screen space |
 | Dock → Show suggested apps | Off | Keeps dock clean |
 | Dock → Animate opening | Off | Faster feel |
+| Menu bar clock | Analogue | Small/ignorable — digital time comes from Stats (Part 6) |
+
+**Manual** — GUI or third-party, audited and walked through by `/macos-setup` (not scripted):
+
+| Setting | Value | Why |
+|---|---|---|
 | General → Login Items | Add: Stats, Itsycal, Time Out, Raycast, Hidden Bar, Alt-Tab | Auto-start |
 
 **Dock:** Remove everything from the Dock manually (right-click each icon → Options → Remove from Dock). Leave only Finder and Trash. You open everything else with Raycast.
 
 **Why this matters:** Every time you reach for the Dock you are breaking focus. Raycast lets you open any app in under a second without leaving the keyboard.
 
-**Menu bar clock:** You cannot turn off the system clock entirely — set it to **Analogue** (System Settings → Control Centre → Clock). Stats will show the time digitally; the analogue clock is small enough to ignore.
+**Menu bar clock:** You cannot turn off the system clock entirely — it is set to **Analogue** by `task macos` (`com.apple.menuextra.clock IsAnalog`). Stats shows the time digitally; the analogue clock is small enough to ignore. If you want digital time and it is missing, configure Stats (Part 6) — do not flip the system clock.
 
 ---
 
@@ -746,7 +758,7 @@ Hidden Bar creates a separator in your menu bar. Icons to the right of the separ
 **Itsycal:**
 
 - Right-click → Preferences
-- Set the date format to: `E d MMM` — shows "Sun 26 Apr"
+- Itsycal 0.15+ has no date-format field — instead enable **Show day of week** and **Show month** (the day number always shows). That renders "Sun 28 Jun", i.e. `E d MMM`.
 - Tick "Show week numbers" if useful
 - Drag it to sit next to the Stats clock
 
