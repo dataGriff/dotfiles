@@ -55,6 +55,8 @@ Read the user's intent from how the skill was invoked.
 
 **mise runtimes outdated or untrusted** — `mise upgrade`; if a config-trust error appears, `mise trust ~/dotfiles/mise/config.toml`.
 
+**macOS settings drift (section 6)** — a tracked `defaults` value no longer matches `macos/settings.sh`. Re-apply with `task macos`, or hand off to `/macos-setup` for the full system+manual pass. To change an intended value, edit `macos/settings.sh` (it feeds both apply and the doctor check).
+
 # Making it regular & visible
 
 `task doctor` is the visible dashboard — fast and read-only. The `dotfiles-doctor` shell alias runs it from anywhere. For a recurring nudge, offer `/schedule` (a periodic cloud run) or `/loop`. Don't set up scheduling unless the user asks.

@@ -123,6 +123,27 @@ else
   flag "$warn" "mise not found"
 fi
 
+# ── 6. macOS settings ─────────────────────────────────────────────────────────
+if [[ "$OSTYPE" == darwin* ]]; then
+  hr "6. macOS settings"
+  source "$DOTFILES/macos/settings.sh"
+  for entry in "${MACOS_SETTINGS[@]}"; do
+    IFS='|' read -r domain key type value <<< "$entry"
+    want="$value"
+    [ "$type" = "bool" ] && { [ "$value" = "true" ] && want=1 || want=0; }
+    current=$(defaults read "$domain" "$key" 2>/dev/null)
+    if [ -z "$current" ] && ! defaults read "$domain" "$key" >/dev/null 2>&1; then
+      flag "$warn" "$domain $key not set (run: task macos)"
+    elif [ "$type" = "float" ] && [ "$(echo "$current == $want" | bc -l 2>/dev/null)" = "1" ]; then
+      note "$ok" "$domain $key = $current"
+    elif [ "$current" = "$want" ]; then
+      note "$ok" "$domain $key = $current"
+    else
+      flag "$warn" "$domain $key = $current, want $want (run: task macos)"
+    fi
+  done
+fi
+
 # ── Summary ───────────────────────────────────────────────────────────────────
 hr "Summary"
 if [ "$issues" -eq 0 ]; then

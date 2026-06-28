@@ -17,6 +17,11 @@ tasks:
       - brew bundle install --file Brewfile
       - ./install.sh
 
+  macos:
+    desc: Apply tracked macOS system settings (defaults). Restarts Dock/Control Centre.
+    cmds:
+      - ./macos/apply.sh
+
   upgrade:
     desc: Update and upgrade brew formulae, casks, and mise runtimes
     cmds:

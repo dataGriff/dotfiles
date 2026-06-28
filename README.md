@@ -105,10 +105,12 @@ The repo is the single source of truth: everything installed should be in the `B
 
 | Command | What it does |
 |---------|--------------|
-| `task doctor` (or `dotfiles-doctor`) | Read-only audit: symlink integrity, drift between installed packages and the Brewfile, outdated packages, mise runtimes |
+| `task doctor` (or `dotfiles-doctor`) | Read-only audit: symlink integrity, drift between installed packages and the Brewfile, outdated packages, mise runtimes, macOS system settings |
 | `task sync` | Install everything from the Brewfile, then relink dotfiles |
+| `task macos` | Apply tracked macOS system settings (`defaults`) — Dock, trackpad, keyboard, scrolling, clock. Restarts Dock/Control Centre |
 | `task upgrade` (or `brewup`) | Upgrade brew formulae, casks, and mise runtimes |
 | `task cleanup` | Preview installs not in the Brewfile (dry run — never forces) |
 | `/dotfiles` (Claude) | Run the audit and resolve drift interactively — adds untracked tools to the repo or uninstalls them, fixes links, opens a draft PR |
+| `/macos-setup` (Claude) | End-to-end macOS settings: applies the tracked `defaults`, verifies them, then audits and walks through the manual GUI/third-party bits (login items, Stats, Itsycal, desktops, Chrome default) |
 
 **Installing a new tool:** add it to the `Brewfile` (or `mise/config.toml` for runtimes) and run `task sync` — never `brew install` directly, or it drifts from the repo. Runtimes (Node, Python, …) are managed by `mise`; per-project versions go in a project `mise.toml`, `.nvmrc`, or `.python-version`.
