@@ -29,5 +29,6 @@
     "command": "sh ~/.claude/statusline-command.sh"
   },
   "theme": "dark",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }
