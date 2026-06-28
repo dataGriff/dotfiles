@@ -28,6 +28,7 @@ fi
 # Claude
 mkdir -p "$HOME/.claude"
 symlink "claude/CLAUDE.md" ".claude/CLAUDE.md"
+symlink "claude/intent.md" ".claude/intent.md"
 symlink "claude/settings.json" ".claude/settings.json"
 symlink "claude/statusline-command.sh" ".claude/statusline-command.sh"
 

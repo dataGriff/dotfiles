@@ -8,7 +8,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat ~/.claude/okrs/active.md 2>/dev/null || true"
+            "command": "sh ~/.claude/okrs/inject-active.sh 2>/dev/null || true"
           }
         ]
       }
@@ -28,7 +28,7 @@
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
   },
+  "tui": "fullscreen",
   "theme": "dark",
-  "skipAutoPermissionPrompt": true,
-  "tui": "fullscreen"
+  "skipAutoPermissionPrompt": true
 }
